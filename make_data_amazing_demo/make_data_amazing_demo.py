@@ -1,3 +1,6 @@
+"""
+DOCSTRING
+"""
 import librosa
 import matplotlib.pyplot as plt
 import numpy as np
@@ -47,8 +50,7 @@ synonyms = [
     ['synth', 'synthesizer'],
     ['violin', 'violins'],
     ['vocal', 'vocals', 'voice', 'voices'],
-    ['strange', 'weird']
-    ]
+    ['strange', 'weird']]
 
 # Merge the synonyms and drop all other columns than the first one.
 # Merge 'beat', 'beats' and save it to 'beat'.
@@ -110,7 +112,7 @@ for id in range(25863):
 # Convert all the mp3 files into their corresponding mel-spectrograms (melgrams).
 # Audio preprocessing function
 def compute_melgram(audio_path):
-    ''' 
+    """
     Compute a mel-spectrogram and returns it in a shape of (1,1,96,1366), 
     where 96 == #mel-bins and 1366 == #time frame
     
@@ -119,7 +121,7 @@ def compute_melgram(audio_path):
     audio_path: path for the audio file. 
                 Any format supported by audioread will work.
     More info: http://librosa.github.io/librosa/generated/librosa.core.load.html#librosa.core.load
-    '''
+    """
     SR = 12000
     N_FFT = 512
     N_MELS = 96
@@ -147,6 +149,7 @@ files_that_dont_work=[]
 os.chdir('/home/cc/notebooks/MusicProject/MagnaTagATune/')
 root = os.getcwd()
 os.chdir(root + '/dataset_clip_id_mp3/')
+
 for audio_path in os.listdir('.'):
     # audio_paths.append(os.path.abspath(fname))
     if os.path.isfile(root + '/dataset_clip_id_melgram/' + str(os.path.splitext(audio_path)[0]) + '.npy'):
